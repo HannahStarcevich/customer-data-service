@@ -1,6 +1,6 @@
 import ky from "ky"; 
 
-const baseUrl = "http://localhost:8080/customer"; 
+const baseUrl = "https://customer-data-service-hs.herokuapp.com/customer"; 
 
 // api object with methods to call everything we need from the endpoints 
 
