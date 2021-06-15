@@ -14,13 +14,13 @@ import PropTypes from 'prop-types';
 import { useMutation, useQueryClient } from 'react-query';
 import EditableText from './EditableText';
 function CustomersTable({ customer }) {
-//   const updateCustomer = useMutation(({ payload, id }) =>
-//     api.update(payload, id)
-//   );
+  const updateCustomer = useMutation(({ payload, id }) =>
+    api.update(payload, id)
+  );
   const deleteCustomer = useMutation(id => api.delete(id));
   const queryClient = useQueryClient();
   function handleUpdate(event) {
-    const updateCustomer = {
+    const updatedCustomer = {
       ...customer.find(
         ({ id }) =>
           id ===
@@ -30,7 +30,7 @@ function CustomersTable({ customer }) {
       ...{ [event.target.dataset.key]: event.target.value },
     };
     updateCustomer.mutate({
-      payload: updateCustomer,
+      payload: updatedCustomer,
       id: event.target.dataset.id,
     });
   }
